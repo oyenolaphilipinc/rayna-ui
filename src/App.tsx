@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from './About'
 import GetStartedPage from './GetStarted';
 import ResourcesPage from "./Resources";
+import Newsletter from "./Newsletter";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/resources",
     element: <ResourcesPage />
+  },
+  {
+    path: "/newsletter",
+    element: <Newsletter />
   }
 ]);
 
