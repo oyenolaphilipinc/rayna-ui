@@ -153,14 +153,14 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
             {[
-              { name: 'Zoho', height: 40 },
-              { name: 'AWS', height: 35 },
-              { name: 'Salesforce', height: 40 },
-              { name: 'Microsoft', height: 40 },
-              { name: 'Wise', height: 40 },
+              { image: '/zoho.svg', height: 100, width: 100 },
+              { image: '/logos_aws.svg', height: 100, width: 100 },
+              { image: '/logos_salesforce.svg', height: 100, width: 100 },
+              { image: '/microsoft.svg', height: 100, width: 100 },
+              { image: '/wise.svg', height: 100, width: 100 },
             ].map((brand, i) => (
               <div key={i} className="h-12 flex items-center justify-center">
-                <span className="text-lg sm:text-xl font-bold text-gray-800">{brand.name}</span>
+                <img src={brand.image} height={brand.height} width={brand.width} />
               </div>
             ))}
           </div>
