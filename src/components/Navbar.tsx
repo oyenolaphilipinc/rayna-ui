@@ -1,11 +1,22 @@
-import { useState } from "react";
+'use client'
 
-interface Props{
+import { useState } from "react";
+import { ChevronDown } from 'lucide-react';
+
+interface Props {
   button: string
 }
 
 export function Header({ button }: Props) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
+
+  const services = [
+    { name: "Software Development", href: "/software" },
+    { name: "Digital Transformation", href: "/digital" },
+    { name: "Business Solutions", href: "/business-page" },
+    { name: "IT Training", href: "/it-page" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#e6f2fe] backdrop-blur-sm">
@@ -26,12 +37,36 @@ export function Header({ button }: Props) {
             <a href="/" className="text-sm font-medium text-gray-900">
               Home
             </a>
-            <a
-              href="/services"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900"
-            >
-              Services
-            </a>
+            <div className="relative group">
+              <button 
+                className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900"
+                onMouseEnter={() => setIsServicesMenuOpen(true)}
+                onMouseLeave={() => setIsServicesMenuOpen(false)}
+              >
+                Services
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {isServicesMenuOpen && (
+                <div 
+                  className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                  onMouseEnter={() => setIsServicesMenuOpen(true)}
+                  onMouseLeave={() => setIsServicesMenuOpen(false)}
+                >
+                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    {services.map((service) => (
+                      <a
+                        key={service.name}
+                        href={service.href}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"
+                      >
+                        {service.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
             <a
               href="/about"
               className="text-sm font-medium text-gray-600 hover:text-gray-900"
@@ -80,12 +115,28 @@ export function Header({ button }: Props) {
               <a href="/" className="text-sm font-medium text-gray-900">
                 Home
               </a>
-              <a
-                href="/services"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900"
-              >
-                Services
-              </a>
+              <div>
+                <button 
+                  onClick={() => setIsServicesMenuOpen(!isServicesMenuOpen)}
+                  className="flex items-center justify-between w-full text-sm font-medium text-gray-600 hover:text-gray-900"
+                >
+                  Services
+                  <ChevronDown className={`ml-1 h-4 w-4 transform ${isServicesMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isServicesMenuOpen && (
+                  <div className="mt-2 space-y-2 pl-4">
+                    {services.map((service) => (
+                      <a
+                        key={service.name}
+                        href={service.href}
+                        className="block text-sm text-gray-600 hover:text-gray-900"
+                      >
+                        {service.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
               <a
                 href="/about"
                 className="text-sm font-medium text-gray-600 hover:text-gray-900"
@@ -108,3 +159,4 @@ export function Header({ button }: Props) {
     </header>
   );
 }
+
