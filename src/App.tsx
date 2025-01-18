@@ -1,8 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from './About'
 import GetStartedPage from './GetStarted';
-import ResourcesPage from "./Resources";
-import Newsletter from "./Newsletter";
+import SoftwarePage from "./Software";
+import BusinessPage from "./BusinessSolutions";
+import DigitalPage from "./Digital";
+import ITPage from "./IT";
+import ContactSection from "./components/Contact";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +17,24 @@ const router = createBrowserRouter([
     element: <About />,
   },
   {
-    path: "/resources",
-    element: <ResourcesPage />
+    path: "/software",
+    element: <SoftwarePage />
   },
   {
-    path: "/newsletter",
-    element: <Newsletter />
+    path: "/business-page",
+    element: <BusinessPage />
+  },
+  {
+    path: "/digital",
+    element: <DigitalPage />
+  },
+  {
+    path: "/it-page",
+    element: <ITPage />
+  },
+  {
+    path: "/contact",
+    element: <ContactSection />
   }
 ]);
 
