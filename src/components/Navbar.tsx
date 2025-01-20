@@ -27,8 +27,8 @@ export function Header({ button }: Props) {
             <img
               src={`/techbor.svg`}
               alt="Techbor Logo"
-              width={100}
-              height={100}
+              width={180}
+              height={180}
             />
           </a>
 

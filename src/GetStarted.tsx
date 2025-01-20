@@ -15,7 +15,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-center lg:text-left mt-16">
-              <p className="text-xs text-gray-600 md:text-center border bg-gray-300 w-11/12 md:w-7/12 rounded-full py-1">
+              <p className="text-xs text-gray-600 md:text-center border bg-[#DBEEFE] w-11/12 md:w-7/12 rounded-full py-1">
                 empowering businesses, transforming the future ⚡
               </p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
