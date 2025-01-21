@@ -1,15 +1,17 @@
-import { Button } from './components/ui/button';
-import { Card } from './components/ui/card';
-import ConsultationForm from './components/consultation-form';
-import { ArrowRight } from 'lucide-react';
-import { Header } from './components/Navbar';
-import Footer from './components/Footer';
+import { Button } from "./components/ui/button";
+import { Card } from "./components/ui/card";
+import ConsultationForm from "./components/consultation-form";
+import { ArrowRight } from "lucide-react";
+import { Header } from "./components/Navbar";
+import Footer from "./components/Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <main className="min-h-screen">
       <Header button="Book Consultation" />
-      
+
       {/* Hero Section */}
       <section className="bg-[#e6f2fe] px-4 sm:px-6 md:px-8 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto">
@@ -19,24 +21,36 @@ export default function Home() {
                 empowering businesses, transforming the future ⚡
               </p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                Transform your business with innovative{' '}
+                Transform your business with innovative{" "}
                 <span className="text-blue-600">IT solutions</span>
               </h1>
               <p className="text-gray-600 text-base sm:text-lg">
-                Partner with us for digital transformation and scalable solutions that drive success.
+                Partner with us for digital transformation and scalable
+                solutions that drive success.
               </p>
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                <Button size="lg" className="rounded-full bg-[#0066FF] hover:bg-[#0066FF]/90">
+                <Button
+                  size="lg"
+                  className="rounded-full bg-[#0066FF] hover:bg-[#0066FF]/90"
+                >
                   Get Started Today
                 </Button>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 text-sm text-gray-600">
                 <div className="flex -space-x-2">
                   {[1].map((i) => (
-                    <img src='/iconify.svg' key={i} width={100} height={100} alt='Hello' />
+                    <img
+                      src="/iconify.svg"
+                      key={i}
+                      width={100}
+                      height={100}
+                      alt="Hello"
+                    />
                   ))}
                 </div>
-                <p>Join 1000+ businesses thriving with Techbor's IT solutions.</p>
+                <p>
+                  Join 1000+ businesses thriving with Techbor's IT solutions.
+                </p>
               </div>
             </div>
             <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] flex justify-center">
@@ -58,44 +72,66 @@ export default function Home() {
               Driving Your Business with IT Solutions
             </h2>
             <p className="text-gray-600">
-              Explore a range of IT solutions designed to streamline operations, drive growth, and empower your business.
+              Explore a range of IT solutions designed to streamline operations,
+              drive growth, and empower your business.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: 'Software Development',
-                description: 'Delivering innovative software solutions that leverage the latest technologies to drive innovation.',
-                image: '/computer-lab.svg',
+                title: "Software Development",
+                description:
+                  "Delivering innovative software solutions that leverage the latest technologies to drive innovation.",
+                image: "/computer-lab.svg",
+                url: "/software",
               },
               {
-                title: 'Digital Transformation',
-                description: 'Driving digital transformation for businesses through innovative technology.',
-                image: '/digital-time.svg',
+                title: "Digital Transformation",
+                description:
+                  "Driving digital transformation for businesses through innovative technology.",
+                image: "/digital-time.svg",
+                url: "/digital",
               },
               {
-                title: 'Business Solution',
-                description: 'Achieve Operational Efficiency and Eliminate Deficiency through our innovative IT solutions.',
-                image: '/open-solution.svg',
+                title: "Business Solution",
+                description:
+                  "Achieve Operational Efficiency and Eliminate Deficiency through our innovative IT solutions.",
+                image: "/open-solution.svg",
+                url: "/business-page",
               },
               {
-                title: 'Training',
-                description: 'BOR training program helps individuals and organizations to up-skill and do more with IT.',
-                image: '/closed-solution.svg',
+                title: "Training",
+                description:
+                  "BOR training program helps individuals and organizations to up-skill and do more with IT.",
+                image: "/closed-solution.svg",
+                url: "/it-page",
               },
             ].map((service, i) => (
-              <Card key={i} className="overflow-hidden">
+              <Card key={i} className="overflow-hidden flex flex-col">
                 <div className="aspect-video relative">
                   <img
-                    src={service.image || '/placeholder.svg'}
+                    src={service.image || "/placeholder.svg"}
                     alt={service.title}
                     className="object-cover w-full"
                   />
                 </div>
-                <div className="p-4 text-center lg:text-left">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-gray-600 mb-4 text-sm sm:text-base">{service.description}</p>
-                  <Button variant="link" className="p-0 h-auto font-semibold text-[#0066FF]">
+                <div className="p-4 flex flex-col flex-grow">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base flex-grow">
+                    {service.description}
+                  </p>
+                  <Button
+                    variant="link"
+                    className="p-0 h-auto font-semibold text-[#0066FF] mt-auto"
+                    onClick={() => {
+                      navigate(service.url);
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }, 100);
+                    }}
+                  >
                     Learn more <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
@@ -110,9 +146,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">About Us</h2>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+                About Us
+              </h2>
               <p className="text-gray-600 text-sm sm:text-base">
-                We deliver tailored technology solutions that boost efficiency and productivity. Our expert team provides cutting-edge IT services to help your business thrive in the digital landscape.
+                We deliver tailored technology solutions that boost efficiency
+                and productivity. Our expert team provides cutting-edge IT
+                services to help your business thrive in the digital landscape.
               </p>
             </div>
             <div className="relative h-[300px] sm:h-[400px] flex justify-center">
@@ -131,14 +171,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
             {[
-              { number: '200+', label: 'Consultancy' },
-              { number: '25+', label: 'Total Cases' },
-              { number: '100+', label: 'Members' },
-              { number: '100+', label: 'Satisfied Clients' },
+              { number: "200+", label: "Consultancy" },
+              { number: "25+", label: "Total Cases" },
+              { number: "100+", label: "Members" },
+              { number: "100+", label: "Satisfied Clients" },
             ].map((stat, i) => (
               <div key={i}>
-                <h3 className="text-3xl sm:text-4xl font-bold mb-2">{stat.number}</h3>
-                <p className="text-gray-600 text-sm sm:text-base">{stat.label}</p>
+                <h3 className="text-3xl sm:text-4xl font-bold mb-2">
+                  {stat.number}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
@@ -153,14 +197,18 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
             {[
-              { image: '/zoho.svg', height: 100, width: 100 },
-              { image: '/logos_aws.svg', height: 100, width: 100 },
-              { image: '/logos_salesforce.svg', height: 100, width: 100 },
-              { image: '/microsoft.svg', height: 100, width: 100 },
-              { image: '/wise.svg', height: 100, width: 100 },
+              { image: "/zoho.svg", height: 100, width: 100 },
+              { image: "/logos_aws.svg", height: 100, width: 100 },
+              { image: "/logos_salesforce.svg", height: 100, width: 100 },
+              { image: "/microsoft.svg", height: 100, width: 100 },
+              { image: "/wise.svg", height: 100, width: 100 },
             ].map((brand, i) => (
               <div key={i} className="h-12 flex items-center justify-center">
-                <img src={brand.image} height={brand.height} width={brand.width} />
+                <img
+                  src={brand.image}
+                  height={brand.height}
+                  width={brand.width}
+                />
               </div>
             ))}
           </div>

@@ -177,13 +177,37 @@ export default function ContactSection() {
                 onChange={handleChange}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="" disabled>
+               
+                  <option value="" disabled>
                   Service of Interest
                 </option>
-                <option value="consulting">Consulting</option>
-                <option value="development">Development</option>
-                <option value="design">Design</option>
-                <option value="marketing">Marketing</option>
+                <option value="Custom Software Solutions">
+                  Custom Software Solutions
+                </option>
+                <option value="Mobile App Development">
+                  Mobile App Development
+                </option>
+                <option value="Web Application Development">
+                  Web Application Development
+                </option>
+                <option value="Business Setup Services">
+                  Business Setup Services
+                </option>
+                <option value="Website Design & Development">
+                  Website Design & Development
+                </option>
+                <option value="CRM/ERP Solutions">CRM/ERP Solutions</option>
+                <option value="Cloud Solutions">Cloud Solutions</option>
+                <option value="API Integration">API Integration</option>
+                <option value=" Business Process Automation">
+                  Business Process Automation
+                </option>
+                <option value="IoT Solutions">IoT Solutions</option>
+                <option value="Data Analysis / Business Intelligence Analysis">
+                  Data Analysis / Business Intelligence Analysis
+                </option>
+                <option value="Project Management">Project Management</option>
+                <option value="Business Analysis">Business Analysis</option>
               </select>
               <textarea
                 name="message"

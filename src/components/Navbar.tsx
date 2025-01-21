@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import { useState } from "react";
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown } from "lucide-react";
 
 interface Props {
-  button: string
+  button: string;
 }
 
 export function Header({ button }: Props) {
@@ -37,35 +37,44 @@ export function Header({ button }: Props) {
             <a href="/" className="text-sm font-medium text-gray-900">
               Home
             </a>
-            <div className="relative group">
-              <button 
+            <div
+              className="relative group"
+              onMouseEnter={() => setIsServicesMenuOpen(true)}
+              onMouseLeave={() => setIsServicesMenuOpen(false)}
+            >
+              <button
+                id="services-menu-button"
+                aria-expanded={isServicesMenuOpen}
+                aria-haspopup="true"
+                aria-controls="services-dropdown"
                 className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900"
-                onMouseEnter={() => setIsServicesMenuOpen(true)}
-                onMouseLeave={() => setIsServicesMenuOpen(false)}
               >
                 Services
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
               </button>
-              {isServicesMenuOpen && (
-                <div 
-                  className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
-                  onMouseEnter={() => setIsServicesMenuOpen(true)}
-                  onMouseLeave={() => setIsServicesMenuOpen(false)}
-                >
-                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    {services.map((service) => (
-                      <a
-                        key={service.name}
-                        href={service.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                        role="menuitem"
-                      >
-                        {service.name}
-                      </a>
-                    ))}
-                  </div>
+              <div
+                id="services-dropdown"
+                role="menu"
+                aria-labelledby="services-menu-button"
+                className={`absolute left-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none
+                  ${isServicesMenuOpen ? "block" : "hidden"} 
+                  before:content-[''] before:absolute before:top-[-10px] before:left-0 before:w-full before:h-[10px]`}
+              >
+                <div className="py-1">
+                  {services.map((service, index) => (
+                    <a
+                      key={service.name}
+                      href={service.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      role="menuitem"
+                      tabIndex={0}
+                      id={`service-item-${index}`}
+                    >
+                      {service.name}
+                    </a>
+                  ))}
                 </div>
-              )}
+              </div>
             </div>
             <a
               href="/about"
@@ -102,7 +111,11 @@ export function Header({ button }: Props) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                d={
+                  isMobileMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
               />
             </svg>
           </button>
@@ -116,20 +129,37 @@ export function Header({ button }: Props) {
                 Home
               </a>
               <div>
-                <button 
+                <button
+                  id="mobile-services-button"
+                  aria-expanded={isServicesMenuOpen}
+                  aria-haspopup="true"
+                  aria-controls="mobile-services-dropdown"
                   onClick={() => setIsServicesMenuOpen(!isServicesMenuOpen)}
                   className="flex items-center justify-between w-full text-sm font-medium text-gray-600 hover:text-gray-900"
                 >
                   Services
-                  <ChevronDown className={`ml-1 h-4 w-4 transform ${isServicesMenuOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`ml-1 h-4 w-4 transform transition-transform duration-200 ${
+                      isServicesMenuOpen ? "rotate-180" : ""
+                    }`}
+                    aria-hidden="true"
+                  />
                 </button>
                 {isServicesMenuOpen && (
-                  <div className="mt-2 space-y-2 pl-4">
-                    {services.map((service) => (
+                  <div
+                    id="mobile-services-dropdown"
+                    role="menu"
+                    aria-labelledby="mobile-services-button"
+                    className="mt-2 space-y-2 pl-4"
+                  >
+                    {services.map((service, index) => (
                       <a
                         key={service.name}
                         href={service.href}
-                        className="block text-sm text-gray-600 hover:text-gray-900"
+                        className="block text-sm text-gray-600 hover:text-gray-900 py-2"
+                        role="menuitem"
+                        tabIndex={0}
+                        id={`mobile-service-item-${index}`}
                       >
                         {service.name}
                       </a>
@@ -159,4 +189,3 @@ export function Header({ button }: Props) {
     </header>
   );
 }
-

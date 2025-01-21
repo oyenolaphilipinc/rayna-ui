@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from './About'
-import GetStartedPage from './GetStarted';
+import About from "./About";
+import GetStartedPage from "./GetStarted";
 import SoftwarePage from "./Software";
 import BusinessPage from "./BusinessSolutions";
 import DigitalPage from "./Digital";
@@ -18,28 +18,28 @@ const router = createBrowserRouter([
   },
   {
     path: "/software",
-    element: <SoftwarePage />
+    element: <SoftwarePage />,
   },
   {
     path: "/business-page",
-    element: <BusinessPage />
+    element: <BusinessPage />,
   },
   {
     path: "/digital",
-    element: <DigitalPage />
+    element: <DigitalPage />,
   },
   {
     path: "/it-page",
-    element: <ITPage />
+    element: <ITPage />,
   },
   {
     path: "/contact",
-    element: <ContactSection />
-  }
+    element: <ContactSection />,
+  },
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />
-}
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;
