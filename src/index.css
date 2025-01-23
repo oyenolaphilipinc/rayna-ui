@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 *{
-    font-family: "Poppins", sans-serif;
+    font-family: 'Schibsted Grotesk Variable', sans-serif;
 }
 
 @layer base {

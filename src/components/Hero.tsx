@@ -4,7 +4,7 @@ export default function Home() {
       <section className="relative min-h-screen bg-gradient-to-br from-[#E6F2FF] to-white pt-32">
         <div className="container mx-auto px-4">
           <div className="relative z-10">
-            <p className="mb-4 text-sm text-gray-600 flex items-center gap-2">
+            <p className="mb-4 text-sm text-gray-600  flex items-center gap-2">
               empowering businesses, transforming the future
               <svg
                 width="16"
@@ -20,14 +20,21 @@ export default function Home() {
                 />
               </svg>
             </p>
-            <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-gray-900 mb-6">
-              Transform your business with innovative IT solutions
+            <div className="max-w-xl text-5xl font-bold tracking-[-0.04em] text-gray-900 mb-6">
+              <span >Transform your</span>
+              <br />
+              <span className="block mt-2">
+                business with innovative IT solutions
+              </span>
               <span className="text-[#0066FF]">⚡</span>
-            </h1>
+            </div>
             <p className="max-w-xl text-lg text-gray-600 mb-8">
-              Partner with us for digital transformation and scalable solutions that drive success.
+              Partner with us for digital transformation and scalable solutions
+              that drive success.
             </p>
-            <button className="h-12 rounded-md px-8 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">Get Started Today</button>
+            <button className="h-12 rounded-md px-8 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
+              Get Started Today
+            </button>
             <div className="mt-6 flex items-center gap-2 text-sm text-gray-600">
               <span className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
@@ -37,7 +44,9 @@ export default function Home() {
                   />
                 ))}
               </span>
-              <span>Join 1000+ businesses thriving with Techbor's IT solutions.</span>
+              <span>
+                Join 1000+ businesses thriving with Techbor's IT solutions.
+              </span>
             </div>
           </div>
           <div className="">
@@ -54,6 +63,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  )
+  );
 }
-
