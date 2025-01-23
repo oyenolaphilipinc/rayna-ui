@@ -38,7 +38,7 @@ const About = () => {
       <div className="relative">
         <Header />
         {/* Background Color Overlay */}
-        <div className="absolute inset-0 bg-[#e6f2fe] opacity-50" />
+        <div className="absolute inset-0 bg-white opacity-50" />
 
         {/* Background Image */}
         <div

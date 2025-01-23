@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import { Header } from "./components/Navbar";
 import { Button } from "./components/ui/button";
@@ -23,7 +24,7 @@ export default function ITPage() {
               size="lg"
               className="bg-[#0066FF] hover:bg-[#0066FF]/90 rounded-full w-48 "
             >
-              Get Started Today
+              <Link to="/contact">Get Started Today</Link>
             </Button>
           </div>
           <div className="relative h-[300px] md:h-[400px]">

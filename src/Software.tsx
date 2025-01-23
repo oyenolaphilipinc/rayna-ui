@@ -1,7 +1,8 @@
 import Footer from "./components/Footer";
 import { Header } from "./components/Navbar";
 import { Button } from "./components/ui/button";
-import { Clock, Smartphone, Shield, BarChart } from "lucide-react";
+import { Clock, Smartphone, Shield, BarChart, } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function SoftwarePage() {
   return (
@@ -24,9 +25,9 @@ export default function SoftwarePage() {
             </p>
             <Button
               size="lg"
-              className="bg-[#0066FF] hover:bg-[#0066FF]/90 rounded-full w-48"
+              className="bg-[#0066FF] hover:bg-[#0066FF]/90 rounded-full w-48 "
             >
-              Get Started Today
+              <Link to="/contact">Get Started Today</Link>
             </Button>
           </div>
           <div className="relative h-[300px] md:h-[400px]">

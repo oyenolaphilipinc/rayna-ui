@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Props {
   button?: string;
@@ -65,16 +66,16 @@ export function Header({ button }: Props) {
                 >
                   <div className="py-1">
                     {services.map((service, index) => (
-                      <a
+                      <Link
                         key={service.name}
-                        href={service.href}
+                        to={service.href}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                         tabIndex={0}
                         id={`service-item-${index}`}
                       >
                         {service.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

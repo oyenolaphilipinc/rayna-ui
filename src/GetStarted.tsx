@@ -35,7 +35,9 @@ export default function Home() {
                   size="lg"
                   className="rounded-full bg-[#0066FF] hover:bg-[#0066FF]/90"
                 >
-                  Get Started Today
+                  <a href="#consultation">
+                    Get Started Today
+                  </a>
                 </Button>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 text-sm text-gray-600">
@@ -221,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* Consultation Section */}
-      <section className="bg-gray-100 ">
+      <section className="bg-gray-100 " id="consultation">
         <div className="container mx-auto px-8 sm:px-12 lg:px-24">
           <div className="max-w-2xl md:max-w-full mx-auto">
             <ConsultationForm />
