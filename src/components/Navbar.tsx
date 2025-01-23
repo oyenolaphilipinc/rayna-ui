@@ -107,7 +107,7 @@ export function Header({ button }: Props) {
 
           {/* Hamburger Icon */}
           <button
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-black focus:outline-none"
+            className="md:hidden inline-flex items-center justify-center mr-32 rounded-md text-black focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg
