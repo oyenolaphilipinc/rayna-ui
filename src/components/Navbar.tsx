@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 interface Props {
-  button: string;
+  button?: string;
 }
 
 export function Header({ button }: Props) {
@@ -21,79 +21,87 @@ export function Header({ button }: Props) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#e6f2fe] backdrop-blur-sm">
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <a href="/" className="flex items-center space-x-2">
-            <img
-              src={`/techbor.svg`}
-              alt="Techbor Logo"
-              width={180}
-              height={180}
-            />
-          </a>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 border border-[#e6f2fe] px-6 py-2 rounded-full bg-white">
-            <a href="/" className="text-sm font-medium text-gray-900">
-              Home
+        <div className="flex h-20 items-center">
+          {/* Logo - Fixed width */}
+          <div className="w-[180px] min-w-[180px]">
+            <a href="/" className="flex items-center space-x-2">
+              <img
+                src={`/techbor.svg`}
+                alt="Techbor Logo"
+                width={180}
+                height={180}
+              />
             </a>
-            <div
-              className="relative group"
-              onMouseEnter={() => setIsServicesMenuOpen(true)}
-              onMouseLeave={() => setIsServicesMenuOpen(false)}
-            >
-              <button
-                id="services-menu-button"
-                aria-expanded={isServicesMenuOpen}
-                aria-haspopup="true"
-                aria-controls="services-dropdown"
-                className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900"
-              >
-                Services
-                <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
-              </button>
+          </div>
+
+          {/* Navigation - Centered with flex-1 */}
+          <div className="flex-1 flex justify-center">
+            <nav className="hidden md:flex items-center space-x-8 border border-[#e6f2fe] px-6 py-2 rounded-full bg-white">
+              <a href="/" className="text-sm font-medium text-gray-900">
+                Home
+              </a>
               <div
-                id="services-dropdown"
-                role="menu"
-                aria-labelledby="services-menu-button"
-                className={`absolute left-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none
-                  ${isServicesMenuOpen ? "block" : "hidden"} 
-                  before:content-[''] before:absolute before:top-[-10px] before:left-0 before:w-full before:h-[10px]`}
+                className="relative group"
+                onMouseEnter={() => setIsServicesMenuOpen(true)}
+                onMouseLeave={() => setIsServicesMenuOpen(false)}
               >
-                <div className="py-1">
-                  {services.map((service, index) => (
-                    <a
-                      key={service.name}
-                      href={service.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                      tabIndex={0}
-                      id={`service-item-${index}`}
-                    >
-                      {service.name}
-                    </a>
-                  ))}
+                <button
+                  id="services-menu-button"
+                  aria-expanded={isServicesMenuOpen}
+                  aria-haspopup="true"
+                  aria-controls="services-dropdown"
+                  className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900"
+                >
+                  Services
+                  <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
+                </button>
+                <div
+                  id="services-dropdown"
+                  role="menu"
+                  aria-labelledby="services-menu-button"
+                  className={`absolute left-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none
+                    ${isServicesMenuOpen ? "block" : "hidden"} 
+                    before:content-[''] before:absolute before:top-[-10px] before:left-0 before:w-full before:h-[10px]`}
+                >
+                  <div className="py-1">
+                    {services.map((service, index) => (
+                      <a
+                        key={service.name}
+                        href={service.href}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"
+                        tabIndex={0}
+                        id={`service-item-${index}`}
+                      >
+                        {service.name}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-            <a
-              href="/about"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900"
-            >
-              About Us
-            </a>
-            <a
-              href="/contact"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900"
-            >
-              Contact Us
-            </a>
-          </nav>
+              <a
+                href="/about"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
+                About Us
+              </a>
+              <a
+                href="/contact"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
+                Contact Us
+              </a>
+            </nav>
+          </div>
 
-          {/* Book Consultation Button */}
-          <button className="hidden md:inline-flex h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
-            {button}
-          </button>
+          {/* Button - Fixed width */}
+          <div className="w-[180px] min-w-[180px] flex justify-end">
+            {button && (
+              <button className="hidden md:inline-flex h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
+                {button}
+              </button>
+            )}
+          </div>
 
           {/* Hamburger Icon */}
           <button

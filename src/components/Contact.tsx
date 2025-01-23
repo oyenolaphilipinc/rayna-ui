@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Header } from "./Navbar";
 import Footer from "./Footer";
+import { Twitter, Instagram, Linkedin } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -27,13 +28,13 @@ export default function ContactSection() {
     <div className="min-h-screen">
       {/* Hero Section with Background */}
       <div className="relative">
-        <Header button="Contact" />
+        <Header />
         {/* Background Color Overlay */}
         <div className="absolute inset-0 bg-[#e6f2fe] opacity-50" />
 
         {/* Background Image */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 mt-24"
           style={{
             backgroundImage: "url('/load.gif')",
             backgroundPosition: "center",
@@ -45,7 +46,7 @@ export default function ContactSection() {
         />
 
         {/* Hero Content */}
-        <div className="relative z-10 py-60 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 py-40 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="text-center mb-12 sm:mb-24 mt-12 sm:mt-24">
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">
@@ -64,7 +65,7 @@ export default function ContactSection() {
       {/* Rest of the content without background */}
       <div>
         {/* Address and Map Section */}
-        <section className="bg-[#e6f2fe] p-4 sm:p-8 rounded-md">
+        <section className="py-16 bg-[#e6f2fe]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Address */}
             <div className="flex flex-col justify-center">
@@ -107,23 +108,23 @@ export default function ContactSection() {
           <div>
             <h2 className="text-lg font-semibold mb-2">Call us</h2>
             <a
-              href="tel:+1234568988765"
+              href="tel:+447723674001"
               className="text-gray-600 hover:text-gray-900"
             >
-              +1234568988765
+              +44 7723 674001
             </a>
           </div>
           <div>
             <h2 className="text-lg font-semibold mb-2">Follow us</h2>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 py-1">
               <a href="#" className="text-gray-600 hover:text-gray-900">
-                <i className="fab fa-twitter text-xl"></i>
+                <Twitter className="w-6 h-6" />
               </a>
               <a href="#" className="text-gray-600 hover:text-gray-900">
-                <i className="fab fa-instagram text-xl"></i>
+                <Instagram className="w-6 h-6" />
               </a>
               <a href="#" className="text-gray-600 hover:text-gray-900">
-                <i className="fab fa-linkedin text-xl"></i>
+                <Linkedin className="w-6 h-6" />
               </a>
             </div>
           </div>

@@ -13,16 +13,18 @@ export default function Home() {
       <Header button="Book Consultation" />
 
       {/* Hero Section */}
-      <section className="bg-[#e6f2fe] px-4 sm:px-6 md:px-8 py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-[#e6f2fe] py-16 md:py-24">
+        <div className="container mx-auto px-8 sm:px-12 lg:px-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-center lg:text-left mt-16">
               <p className="text-xs text-gray-600 md:text-center border bg-[#DBEEFE] w-11/12 md:w-7/12 rounded-full py-1">
                 empowering businesses, transforming the future ⚡
               </p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                Transform your business with innovative{" "}
-                <span className="text-blue-600">IT solutions</span>
+                <span className="block">Transform your business with</span>
+                <span className="block">
+                  innovative <span className="text-blue-600">IT solutions</span>
+                </span>
               </h1>
               <p className="text-gray-600 text-base sm:text-lg">
                 Partner with us for digital transformation and scalable
@@ -65,8 +67,8 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-white px-4 sm:px-6 md:px-8 py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-8 sm:px-12 lg:px-24">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
               Driving Your Business with IT Solutions
@@ -107,7 +109,10 @@ export default function Home() {
                 url: "/it-page",
               },
             ].map((service, i) => (
-              <Card key={i} className="overflow-hidden flex flex-col">
+              <Card
+                key={i}
+                className="overflow-hidden flex flex-col max-w-sm mx-auto w-full"
+              >
                 <div className="aspect-video relative">
                   <img
                     src={service.image || "/placeholder.svg"}
@@ -115,16 +120,16 @@ export default function Home() {
                     className="object-cover w-full"
                   />
                 </div>
-                <div className="p-4 flex flex-col flex-grow">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                <div className="p-4 flex flex-col flex-grow text-center">
+                  <h3 className="text-lg font-semibold mb-2 truncate">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 text-sm sm:text-base flex-grow">
+                  <p className="text-gray-600 mb-4 text-sm flex-grow">
                     {service.description}
                   </p>
                   <Button
                     variant="link"
-                    className="p-0 h-auto font-semibold text-[#0066FF] mt-auto"
+                    className="p-0 h-auto font-semibold text-[#0066FF] mt-auto mx-auto"
                     onClick={() => {
                       navigate(service.url);
                       setTimeout(() => {
@@ -142,8 +147,8 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="bg-white px-4 sm:px-6 md:px-8 py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-8 sm:px-12 lg:px-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
@@ -167,8 +172,8 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-[#e6f2fe] px-4 sm:px-6 md:px-8 py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-[#e6f2fe] py-16 md:py-24">
+        <div className="container mx-auto px-8 sm:px-12 lg:px-24">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
             {[
               { number: "200+", label: "Consultancy" },
@@ -190,9 +195,9 @@ export default function Home() {
       </section>
 
       {/* Trusted By Section */}
-      <section className="bg-white px-4 sm:px-6 md:px-8 py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl sm:text-2xl text-center text-gray-600 mb-8 sm:mb-12">
+      <section className="bg-white py-12">
+        <div className="container mx-auto px-8 sm:px-12 lg:px-24">
+          <h2 className="text-xl sm:text-2xl text-center text-gray-600 mb-8">
             Trusted by world's top leading organizations
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
@@ -216,9 +221,11 @@ export default function Home() {
       </section>
 
       {/* Consultation Section */}
-      <section className="bg-white px-4 md:px-0 sm:px-6 py-8">
-        <div className="max-w-2xl md:max-w-full mx-auto">
-          <ConsultationForm />
+      <section className="bg-gray-100 ">
+        <div className="container mx-auto px-8 sm:px-12 lg:px-24">
+          <div className="max-w-2xl md:max-w-full mx-auto">
+            <ConsultationForm />
+          </div>
         </div>
       </section>
 

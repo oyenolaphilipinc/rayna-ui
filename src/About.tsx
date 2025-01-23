@@ -36,13 +36,13 @@ const About = () => {
     <div className="min-h-screen">
       {/* Hero Section with Background */}
       <div className="relative">
-        <Header button="Book Consultation" />
+        <Header />
         {/* Background Color Overlay */}
         <div className="absolute inset-0 bg-[#e6f2fe] opacity-50" />
 
         {/* Background Image */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 mt-24"
           style={{
             backgroundImage: "url('/load.gif')",
             backgroundPosition: "center",
@@ -54,10 +54,10 @@ const About = () => {
         />
 
         {/* Hero Content */}
-        <div className="relative z-10 py-60">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-4xl font-bold tracking-tight text-gray-900 mb-8">
+        <div className="relative z-10 py-48 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="text-center mb-12 sm:mb-24 mt-12 sm:mt-24">
+              <h1 className="text-4xl md:text-5xl lg:text-4xl font-bold tracking-tight text-gray-900">
                 We create solutions that drive innovation, scalability, and
                 success.
               </h1>
