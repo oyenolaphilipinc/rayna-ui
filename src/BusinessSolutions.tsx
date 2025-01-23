@@ -35,7 +35,7 @@ export default function BusinessPage() {
             <img
               src="/company.svg"
               alt="Software Development"
-              x
+              className="object-contain w-full h-[400px]"
             />
           </div>
         </div>
