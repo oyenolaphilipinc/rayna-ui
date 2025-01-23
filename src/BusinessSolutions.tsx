@@ -6,7 +6,7 @@ import { Clock, Smartphone, Shield, BarChart } from "lucide-react";
 export default function BusinessPage() {
   return (
     <main className="min-h-screen">
-      <Header button="Let's Talk" />
+      <Header button="Book Consultation" />
       {/* Software Development Section */}
       <section className="container mx-auto px-8 sm:px-12 lg:px-24 py-24">
         <div className="inline-block px-4 py-2 bg-gray-100 rounded-full mb-6">
