@@ -21,7 +21,7 @@ export function Header({ button }: Props) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#e6f2fe] backdrop-blur-sm">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="flex h-20 items-center">
           {/* Logo - Fixed width */}
           <div className="w-[180px] min-w-[180px]">
@@ -31,13 +31,14 @@ export function Header({ button }: Props) {
                 alt="Techbor Logo"
                 width={180}
                 height={180}
+                className="ml-4"
               />
             </a>
           </div>
 
           {/* Navigation - Centered with flex-1 */}
           <div className="flex-1 flex justify-center">
-            <nav className="hidden md:flex items-center space-x-8 border border-[#e6f2fe] px-6 py-2 rounded-full bg-white">
+            <nav className="hidden md:flex items-center space-x-8 ml-8 border border-[#e6f2fe] px-6 py-2 rounded-full">
               <a href="/" className="text-sm font-medium text-gray-900">
                 Home
               </a>
