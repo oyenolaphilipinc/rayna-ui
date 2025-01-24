@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ConsultationForm() {
   const [formData, setFormData] = useState({
@@ -10,15 +11,54 @@ export default function ConsultationForm() {
     serviceOfInterest: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<"success" | "error" | null>(null);
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+
+    try {
+      const result = await emailjs.send(
+        "service_h0qffrc", // Replace with your EmailJS service ID
+        "template_uiwm26u", // Replace with your EmailJS template ID
+        {
+          from_name: formData.name,
+          to_name: "Techbor",
+          from_email: formData.email,
+          phone: formData.phone,
+          preferred_date: formData.preferredDate,
+          preferred_time: formData.time,
+          service: formData.serviceOfInterest,
+          message: formData.message,
+        },
+        "mnQvg5uQfSbVY8bSR" // Replace with your EmailJS public key
+      );
+
+      if (result.status === 200) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          preferredDate: "",
+          time: "",
+          serviceOfInterest: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      setStatus("error");
+      console.error("Failed to send email:", error);
+    } finally {
+      setLoading(false);
+      setTimeout(() => setStatus(null), 5000);
+    }
   };
 
   return (
