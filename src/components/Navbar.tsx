@@ -1,38 +1,32 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import { ChevronDown } from "lucide-react"
+import { Link } from "react-router-dom"
 
 interface Props {
-  button?: string;
+  button?: string
 }
 
 export function Header({ button }: Props) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false)
 
   const services = [
     { name: "Software Development", href: "/software" },
     { name: "Digital Transformation", href: "/digital" },
     { name: "Business Solutions", href: "/business-page" },
     { name: "IT Training", href: "/it-page" },
-  ];
+  ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#e6f2fe] backdrop-blur-sm">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <div className="flex h-20 items-center">
           {/* Logo - Fixed width */}
           <div className="w-[180px] min-w-[180px]">
             <a href="/" className="flex items-center space-x-2">
-              <img
-                src={`/techbor.svg`}
-                alt="Techbor Logo"
-                width={180}
-                height={180}
-                className="ml-4"
-              />
+              <img src={`/techbor.svg`} alt="Techbor Logo" width={180} height={180} className="ml-4" />
             </a>
           </div>
 
@@ -81,23 +75,17 @@ export function Header({ button }: Props) {
                   </div>
                 </div>
               </div>
-              <a
-                href="/about"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900"
-              >
+              <a href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
                 About Us
               </a>
-              <a
-                href="/contact"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900"
-              >
+              <a href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900">
                 Contact Us
               </a>
             </nav>
           </div>
 
           {/* Button - Fixed width */}
-          <div className="w-[180px] min-w-[180px] flex justify-end">
+          <div className="hidden md:flex justify-end">
             {button && (
               <button className="hidden md:inline-flex h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
                 {button}
@@ -107,7 +95,7 @@ export function Header({ button }: Props) {
 
           {/* Hamburger Icon */}
           <button
-            className="md:hidden inline-flex items-center justify-center mr-32 rounded-md text-black focus:outline-none"
+            className="md:hidden inline-flex items-center justify-center rounded-md text-black focus:outline-none absolute right-4 top-1/2 transform -translate-y-1/2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg
@@ -121,11 +109,7 @@ export function Header({ button }: Props) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d={
-                  isMobileMenuOpen
-                    ? "M6 18L18 6M6 6l12 12"
-                    : "M4 6h16M4 12h16M4 18h16"
-                }
+                d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
               />
             </svg>
           </button>
@@ -177,16 +161,10 @@ export function Header({ button }: Props) {
                   </div>
                 )}
               </div>
-              <a
-                href="/about"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900"
-              >
+              <a href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
                 About Us
               </a>
-              <a
-                href="/contact"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900"
-              >
+              <a href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900">
                 Contact Us
               </a>
               <button className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
@@ -197,5 +175,6 @@ export function Header({ button }: Props) {
         )}
       </div>
     </header>
-  );
+  )
 }
+
