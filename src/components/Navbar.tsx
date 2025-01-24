@@ -30,9 +30,9 @@ export function Header({ button }: Props) {
             </a>
           </div>
 
-          {/* Navigation - Centered with flex-1 */}
+          {/* Navigation - Centered with flex-1 and increased left margin on desktop */}
           <div className="flex-1 flex justify-center">
-            <nav className="hidden md:flex items-center space-x-8 ml-8 border border-[#e6f2fe] px-6 py-2 rounded-full">
+            <nav className="hidden md:flex items-center space-x-8 ml-8 md:ml-16 lg:ml-24 border border-[#e6f2fe] px-6 py-2 rounded-full">
               <a href="/" className="text-sm font-medium text-gray-900">
                 Home
               </a>
