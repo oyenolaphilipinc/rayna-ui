@@ -1,7 +1,7 @@
 import Footer from "./components/Footer";
 import { Header } from "./components/Navbar";
 import { Button } from "./components/ui/button";
-import { Clock, Smartphone, Shield, BarChart} from "lucide-react";
+import { Clock, Smartphone, Shield, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function BusinessPage() {
@@ -275,7 +275,6 @@ export default function BusinessPage() {
           <Button
             size="lg"
             className="bg-blue-500 hover:bg-blue-600 rounded-full"
-
           >
             <Link to="/contact">Book a Free Consultation</Link>
           </Button>

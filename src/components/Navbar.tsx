@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Link, NavLink} from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 interface Props {
   button?: string;
@@ -12,6 +12,7 @@ interface Props {
 export function Header({ button, onButtonClick }: Props) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
+  const location = useLocation();
 
   const services = [
     { name: "Software Development", href: "/software" },
@@ -19,6 +20,21 @@ export function Header({ button, onButtonClick }: Props) {
     { name: "Business Solutions", href: "/business-page" },
     { name: "IT Training", href: "/it-page" },
   ];
+
+  const getButtonLink = () => {
+    if (button?.toLowerCase() === "book consultation") {
+      if (location.pathname === "/") {
+        return "#consultation";
+      } else if (
+        ["/software", "/digital", "/business-page", "/it-page"].includes(
+          location.pathname
+        )
+      ) {
+        return "/contact";
+      }
+    }
+    return "/";
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#e6f2fe] backdrop-blur-sm">
@@ -123,14 +139,21 @@ export function Header({ button, onButtonClick }: Props) {
 
           {/* Button - Fixed width container */}
           <div className="w-[180px] min-w-[180px] hidden md:flex justify-end">
-            {button && (
-              <button
-                onClick={onButtonClick}
-                className="hidden md:inline-flex h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90"
-              >
-                {button}
-              </button>
-            )}
+            {button &&
+              (location.pathname === "/" ? (
+                <button
+                  onClick={onButtonClick}
+                  className="hidden md:inline-flex h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90"
+                >
+                  {button}
+                </button>
+              ) : (
+                <Link to={getButtonLink()}>
+                  <button className="hidden md:inline-flex h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
+                    {button}
+                  </button>
+                </Link>
+              ))}
           </div>
         </div>
 
@@ -217,18 +240,24 @@ export function Header({ button, onButtonClick }: Props) {
             >
               Contact Us
             </a>
-            <a
-              href={
-                button && button.toLowerCase() == "book consultation"
-                  ? "/#consultation"
-                  : "/"
-              }
-              className="w-full h-full flex items-center justify-center"
-            >
-              <button className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
-                {button}
-              </button>
-            </a>
+            {button &&
+              (location.pathname === "/" ? (
+                <button
+                  onClick={onButtonClick}
+                  className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90"
+                >
+                  {button}
+                </button>
+              ) : (
+                <Link
+                  to={getButtonLink()}
+                  className="w-full h-full flex items-center justify-center"
+                >
+                  <button className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
+                    {button}
+                  </button>
+                </Link>
+              ))}
           </nav>
         </div>
       )}
