@@ -66,33 +66,33 @@ export default function ContactSection() {
       <div>
         {/* Address and Map Section */}
         <section className="py-16 bg-[#e6f2fe]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Address */}
-            <div className="flex flex-col justify-center">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                Office Address
-              </h2>
-              <p className="text-base text-gray-600">
-                Level One, Basecamp Liverpool,
-                <br />
-                49 Jamaica Street
-              </p>
-            </div>
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      {/* Address */}
+      <div className="flex flex-col justify-center">
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">Office Address</h2>
+        <p className="text-lg text-gray-600">
+          Level One, Basecamp Liverpool,
+          <br />
+          49 Jamaica Street
+        </p>
+      </div>
 
-            {/* Map */}
-            <div className="h-[300px] sm:h-[400px] rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2374.4!2d-2.9814!3d53.4008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b213027714007%3A0xefb2fafe7aec3c6c!2sJamaica%20St%2C%20Liverpool!5e0!3m2!1sen!2suk!4v1672764800000!5m2!1sen!2suk"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
-        </section>
+      {/* Map */}
+      <div className="h-[300px] sm:h-[400px] rounded-lg overflow-hidden shadow-lg">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2374.4!2d-2.9814!3d53.4008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b213027714007%3A0xefb2fafe7aec3c6c!2sJamaica%20St%2C%20Liverpool!5e0!3m2!1sen!2suk!4v1672764800000!5m2!1sen!2suk"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* Contact Info Section */}
         <div className="grid gap-8 sm:grid-cols-3 text-center mt-12">
