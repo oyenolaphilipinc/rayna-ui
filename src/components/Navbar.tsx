@@ -39,7 +39,7 @@ export function Header({ button, onButtonClick }: Props) {
 
           {/* Navigation - Fixed position with flex-1 */}
           <div className="flex-1 flex justify-center">
-            <nav className="hidden md:flex items-center space-x-8 ml-48 md:ml-48 lg:ml-64 border border-[#e6f2fe] px-6 py-2 rounded-full">
+            <nav className="hidden md:flex items-center space-x-8 ml-32 md:ml-32 lg:ml-64 border border-[#e6f2fe] px-6 py-2 rounded-full">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
