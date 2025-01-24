@@ -92,88 +92,87 @@ export function Header({ button }: Props) {
               </button>
             )}
           </div>
-
-          {/* Hamburger Icon */}
-          <button
-            className="md:hidden inline-flex items-center justify-center rounded-md text-black focus:outline-none absolute right-4 top-1/2 transform -translate-y-1/2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <svg
-              className="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-              />
-            </svg>
-          </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <nav className="flex flex-col space-y-4 p-4 border-t border-gray-200 bg-white rounded-lg">
-              <a href="/" className="text-sm font-medium text-gray-900">
-                Home
-              </a>
-              <div>
-                <button
-                  id="mobile-services-button"
-                  aria-expanded={isServicesMenuOpen}
-                  aria-haspopup="true"
-                  aria-controls="mobile-services-dropdown"
-                  onClick={() => setIsServicesMenuOpen(!isServicesMenuOpen)}
-                  className="flex items-center justify-between w-full text-sm font-medium text-gray-600 hover:text-gray-900"
-                >
-                  Services
-                  <ChevronDown
-                    className={`ml-1 h-4 w-4 transform transition-transform duration-200 ${
-                      isServicesMenuOpen ? "rotate-180" : ""
-                    }`}
-                    aria-hidden="true"
-                  />
-                </button>
-                {isServicesMenuOpen && (
-                  <div
-                    id="mobile-services-dropdown"
-                    role="menu"
-                    aria-labelledby="mobile-services-button"
-                    className="mt-2 space-y-2 pl-4"
-                  >
-                    {services.map((service, index) => (
-                      <a
-                        key={service.name}
-                        href={service.href}
-                        className="block text-sm text-gray-600 hover:text-gray-900 py-2"
-                        role="menuitem"
-                        tabIndex={0}
-                        id={`mobile-service-item-${index}`}
-                      >
-                        {service.name}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-              <a href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
-                About Us
-              </a>
-              <a href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900">
-                Contact Us
-              </a>
-              <button className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
-                {button}
-              </button>
-            </nav>
-          </div>
-        )}
+        {/* Hamburger Icon */}
+        <button
+          className="md:hidden inline-flex items-center justify-center rounded-md text-black focus:outline-none absolute right-4 top-4"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <svg
+            className="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+            />
+          </svg>
+        </button>
       </div>
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-20 left-0 right-0 bg-white">
+          <nav className="flex flex-col space-y-4 p-4 border-t border-gray-200">
+            <a href="/" className="text-sm font-medium text-gray-900">
+              Home
+            </a>
+            <div>
+              <button
+                id="mobile-services-button"
+                aria-expanded={isServicesMenuOpen}
+                aria-haspopup="true"
+                aria-controls="mobile-services-dropdown"
+                onClick={() => setIsServicesMenuOpen(!isServicesMenuOpen)}
+                className="flex items-center justify-between w-full text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
+                Services
+                <ChevronDown
+                  className={`ml-1 h-4 w-4 transform transition-transform duration-200 ${
+                    isServicesMenuOpen ? "rotate-180" : ""
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+              {isServicesMenuOpen && (
+                <div
+                  id="mobile-services-dropdown"
+                  role="menu"
+                  aria-labelledby="mobile-services-button"
+                  className="mt-2 space-y-2 pl-4"
+                >
+                  {services.map((service, index) => (
+                    <a
+                      key={service.name}
+                      href={service.href}
+                      className="block text-sm text-gray-600 hover:text-gray-900 py-2"
+                      role="menuitem"
+                      tabIndex={0}
+                      id={`mobile-service-item-${index}`}
+                    >
+                      {service.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            <a href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+              About Us
+            </a>
+            <a href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+              Contact Us
+            </a>
+            <button className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
+              {button}
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }
