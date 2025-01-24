@@ -26,7 +26,13 @@ export function Header({ button }: Props) {
           {/* Logo - Fixed width */}
           <div className="w-[180px] min-w-[180px]">
             <a href="/" className="flex items-center space-x-2">
-              <img src={`/techbor.svg`} alt="Techbor Logo" width={180} height={180} className="ml-4" />
+              <img
+                src={`/techbor.svg`}
+                alt="Techbor Logo"
+                width={180}
+                height={180}
+                className="ml-4"
+              />
             </a>
           </div>
 
@@ -75,10 +81,16 @@ export function Header({ button }: Props) {
                   </div>
                 </div>
               </div>
-              <a href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+              <a
+                href="/about"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
                 About Us
               </a>
-              <a href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+              <a
+                href="/contact"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
                 Contact Us
               </a>
             </nav>
@@ -110,7 +122,11 @@ export function Header({ button }: Props) {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              d={
+                isMobileMenuOpen
+                  ? "M6 18L18 6M6 6l12 12"
+                  : "M4 6h16M4 12h16M4 18h16"
+              }
             />
           </svg>
         </button>
@@ -161,19 +177,34 @@ export function Header({ button }: Props) {
                 </div>
               )}
             </div>
-            <a href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+            <a
+              href="/about"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900"
+            >
               About Us
             </a>
-            <a href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900">
+            <a
+              href="/contact"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900"
+            >
               Contact Us
             </a>
-            <button className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
-              {button}
-            </button>
+            <a
+              href={
+                button && button.toLowerCase() == "book consultation"
+                  ? "/#consultation"
+                  : "/"
+              }
+              className="w-full h-full flex items-center justify-center"
+            >
+              <button  className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
+                {button}
+              </button>
+            </a>
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }
 
