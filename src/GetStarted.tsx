@@ -10,7 +10,13 @@ export default function Home() {
   const navigate = useNavigate();
   return (
     <main className="min-h-screen">
-      <Header button="Book Consultation" />
+      <Header
+        button="Book Consultation"
+        onButtonClick={() => {
+          const element = document.getElementById("consultation");
+          element?.scrollIntoView({ behavior: "smooth" });
+        }}
+      />
 
       {/* Hero Section */}
       <section className="bg-[#e6f2fe] py-16 md:py-24">
@@ -35,9 +41,7 @@ export default function Home() {
                   size="lg"
                   className="rounded-full bg-[#0066FF] hover:bg-[#0066FF]/90"
                 >
-                  <a href="#consultation">
-                    Get Started Today
-                  </a>
+                  <a href="#consultation">Get Started Today</a>
                 </Button>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 text-sm text-gray-600">

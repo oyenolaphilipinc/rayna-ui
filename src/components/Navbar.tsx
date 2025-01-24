@@ -1,28 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown } from "lucide-react"
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { Link, NavLink} from "react-router-dom";
 
 interface Props {
-  button?: string
+  button?: string;
+  onButtonClick?: () => void;
 }
 
-export function Header({ button }: Props) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false)
+export function Header({ button, onButtonClick }: Props) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
 
   const services = [
     { name: "Software Development", href: "/software" },
     { name: "Digital Transformation", href: "/digital" },
     { name: "Business Solutions", href: "/business-page" },
     { name: "IT Training", href: "/it-page" },
-  ]
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#e6f2fe] backdrop-blur-sm">
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo - Fixed width */}
           <div className="w-[180px] min-w-[180px]">
             <a href="/" className="flex items-center space-x-2">
@@ -36,12 +37,22 @@ export function Header({ button }: Props) {
             </a>
           </div>
 
-          {/* Navigation - Centered with flex-1 and increased left margin on desktop */}
+          {/* Navigation - Fixed position with flex-1 */}
           <div className="flex-1 flex justify-center">
-            <nav className="hidden md:flex items-center space-x-8 ml-8 md:ml-16 lg:ml-24 border border-[#e6f2fe] px-6 py-2 rounded-full">
-              <a href="/" className="text-sm font-medium text-gray-900">
+            <nav className="hidden md:flex items-center space-x-8 ml-48 md:ml-48 lg:ml-64 border border-[#e6f2fe] px-6 py-2 rounded-full">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `text-md font-medium ${
+                    isActive
+                      ? "text-gray-900"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`
+                }
+              >
                 Home
-              </a>
+              </NavLink>
+
               <div
                 className="relative group"
                 onMouseEnter={() => setIsServicesMenuOpen(true)}
@@ -52,7 +63,7 @@ export function Header({ button }: Props) {
                   aria-expanded={isServicesMenuOpen}
                   aria-haspopup="true"
                   aria-controls="services-dropdown"
-                  className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900"
+                  className="flex items-center text-md font-medium text-gray-600 hover:text-gray-900"
                 >
                   Services
                   <ChevronDown className="ml-1 h-4 w-4" aria-hidden="true" />
@@ -81,25 +92,42 @@ export function Header({ button }: Props) {
                   </div>
                 </div>
               </div>
-              <a
-                href="/about"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  `text-md font-medium ${
+                    isActive
+                      ? "text-gray-900"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`
+                }
               >
                 About Us
-              </a>
-              <a
-                href="/contact"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              </NavLink>
+
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `text-md font-medium ${
+                    isActive
+                      ? "text-gray-900"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`
+                }
               >
                 Contact Us
-              </a>
+              </NavLink>
             </nav>
           </div>
 
-          {/* Button - Fixed width */}
-          <div className="hidden md:flex justify-end">
+          {/* Button - Fixed width container */}
+          <div className="w-[180px] min-w-[180px] hidden md:flex justify-end">
             {button && (
-              <button className="hidden md:inline-flex h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
+              <button
+                onClick={onButtonClick}
+                className="hidden md:inline-flex h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90"
+              >
                 {button}
               </button>
             )}
@@ -197,7 +225,7 @@ export function Header({ button }: Props) {
               }
               className="w-full h-full flex items-center justify-center"
             >
-              <button  className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
+              <button className="w-full h-10 rounded-full px-4 py-2 text-base bg-[#0066FF] text-white hover:bg-[#0066FF]/90">
                 {button}
               </button>
             </a>
@@ -207,4 +235,3 @@ export function Header({ button }: Props) {
     </header>
   );
 }
-

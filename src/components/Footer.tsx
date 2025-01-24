@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -68,7 +68,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/18PdwDkwHk/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -77,7 +77,7 @@ export default function Footer() {
                 <span className="sr-only">Facebook</span>
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/techborconsult?s=21"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -86,13 +86,13 @@ export default function Footer() {
                 <span className="sr-only">Twitter</span>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.instagram.com/techborconsulting?igsh=NzJ3YnlocjlhNXZx&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
               >
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
+                <Instagram className="h-6 w-6" />
+                <span className="sr-only">Instagram</span>
               </a>
             </div>
           </div>

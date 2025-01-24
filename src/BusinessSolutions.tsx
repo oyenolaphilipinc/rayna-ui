@@ -275,8 +275,9 @@ export default function BusinessPage() {
           <Button
             size="lg"
             className="bg-blue-500 hover:bg-blue-600 rounded-full"
+
           >
-            Book a Free Consultation
+            <Link to="/contact">Book a Free Consultation</Link>
           </Button>
         </div>
       </section>

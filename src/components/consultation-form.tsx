@@ -13,7 +13,6 @@ export default function ConsultationForm() {
   });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"success" | "error" | null>(null);
- 
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -26,8 +25,8 @@ export default function ConsultationForm() {
 
     try {
       const result = await emailjs.send(
-        "service_h0qffrc", // Replace with your EmailJS service ID
-        "template_uiwm26u", // Replace with your EmailJS template ID
+        "service_h0qffrc",
+        "template_uiwm26u",
         {
           from_name: formData.name,
           to_name: "Techbor",
@@ -38,7 +37,7 @@ export default function ConsultationForm() {
           service: formData.serviceOfInterest,
           message: formData.message,
         },
-        "mnQvg5uQfSbVY8bSR" // Replace with your EmailJS public key
+        "mnQvg5uQfSbVY8bSR"
       );
 
       if (result.status === 200) {
@@ -55,7 +54,6 @@ export default function ConsultationForm() {
       }
     } catch (error) {
       setStatus("error");
-      console.log(status);
       console.error("Failed to send email:", error);
     } finally {
       setLoading(false);
@@ -64,8 +62,7 @@ export default function ConsultationForm() {
   };
 
   return (
-    <div className="">
-      {/* Booking Form Section */}
+    <div>
       <section className="bg-gray-100 w-full px-4 py-16 md:py-24 min-h-screen">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
@@ -81,24 +78,37 @@ export default function ConsultationForm() {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name */}
+              {status === "success" && (
+                <div className="bg-green-50 text-green-800 rounded-md p-4 mb-4">
+                  Message sent successfully! We'll get back to you soon.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="bg-red-50 text-red-800 rounded-md p-4 mb-4">
+                  Failed to send message. Please try again.
+                </div>
+              )}
+
               <input
                 type="text"
                 name="name"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
+                required
+                minLength={2}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
-              {/* Email and Phone */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <input
@@ -107,17 +117,20 @@ export default function ConsultationForm() {
                   placeholder="Phone"
                   value={formData.phone}
                   onChange={handleChange}
+                  required
+                  pattern="[0-9+\s-]{10,}"
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
-              {/* Preferred Date and Time */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="date"
                   name="preferredDate"
                   value={formData.preferredDate}
                   onChange={handleChange}
+                  required
+                  min={new Date().toISOString().split("T")[0]}
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <input
@@ -125,15 +138,16 @@ export default function ConsultationForm() {
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
+                  required
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
-              {/* Service of Interest */}
               <select
                 name="serviceOfInterest"
                 value={formData.serviceOfInterest}
                 onChange={handleChange}
+                required
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="" disabled>
@@ -168,20 +182,20 @@ export default function ConsultationForm() {
                 <option value="Business Analysis">Business Analysis</option>
               </select>
 
-              {/* Message */}
               <textarea
                 name="message"
                 placeholder="Message"
                 value={formData.message}
                 onChange={handleChange}
+                required
+                minLength={10}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 min-h-[100px] focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
 
-              {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 disabled={loading}
+                className="w-full bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? "Sending..." : "Submit"}
               </button>
