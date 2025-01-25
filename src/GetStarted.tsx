@@ -64,7 +64,7 @@ export default function Home() {
             </div>
             <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] flex justify-center">
               <img
-                src="/group1.svg"
+                src="/group1.png"
                 alt="Business professionals"
                 className="object-contain h-full"
               />
@@ -91,28 +91,28 @@ export default function Home() {
                 title: "Software Development",
                 description:
                   "Delivering innovative software solutions that leverage the latest technologies to drive innovation.",
-                image: "/computer-lab.svg",
+                image: "/computer-lab.png",
                 url: "/software",
               },
               {
                 title: "Digital Transformation",
                 description:
                   "Driving digital transformation for businesses through innovative technology.",
-                image: "/digital-time.svg",
+                image: "/digital-time.png",
                 url: "/digital",
               },
               {
                 title: "Business Solution",
                 description:
                   "Achieve Operational Efficiency and Eliminate Deficiency through our innovative IT solutions.",
-                image: "/open-solution.svg",
+                image: "/open-solution.png",
                 url: "/business-page",
               },
               {
                 title: "Training",
                 description:
                   "BOR training program helps individuals and organizations to up-skill and do more with IT.",
-                image: "/closed-solution.svg",
+                image: "/closed-solution.png",
                 url: "/it-page",
               },
             ].map((service, i) => (
@@ -169,7 +169,7 @@ export default function Home() {
             </div>
             <div className="relative h-[300px] sm:h-[400px] flex justify-center">
               <img
-                src="/about.svg"
+                src="/about.png"
                 alt="Team meeting"
                 className="object-contain rounded-lg"
               />
