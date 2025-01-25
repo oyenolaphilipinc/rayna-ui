@@ -82,7 +82,7 @@ const About = () => {
             </div>
             <div>
               <img
-                src="/laptop.svg"
+                src="/laptop.png"
                 alt="Team working together"
                 className="rounded-lg w-full md:w-8/12 shadow-lg md:ml-24"
               />
@@ -97,7 +97,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="/different.svg"
+                src="/different.png"
                 alt="Business meeting"
                 className="rounded-lg w-full md:w-10/12 shadow-lg"
               />
@@ -160,7 +160,7 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="/culture.svg"
+                src="/culture.png"
                 alt="Team collaboration"
                 className="rounded-lg w-full md:w-10/12 shadow-lg"
               />
