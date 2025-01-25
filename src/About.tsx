@@ -1,6 +1,7 @@
 import { Lightbulb, Trophy, Shield, Users } from "lucide-react";
 import { Header } from "./components/Navbar";
 import Footer from "./components/Footer";
+import DocumentHead from "./components/DocumentHead";
 
 const About = () => {
   const values = [
@@ -34,6 +35,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <DocumentHead
+        title="About Us"
+        description="We create solutions that drive innovation, scalability, and success. Learn about our values, culture, and commitment to excellence."
+        keywords="IT company, innovation, business solutions, technology consulting, digital transformation"
+      />
       {/* Hero Section with Background */}
       <div className="relative">
         <Header />

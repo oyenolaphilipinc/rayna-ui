@@ -1,12 +1,18 @@
 import Footer from "./components/Footer";
 import { Header } from "./components/Navbar";
 import { Button } from "./components/ui/button";
-import { Clock, Smartphone, Shield, BarChart, } from "lucide-react";
+import { Clock, Smartphone, Shield, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
+import DocumentHead from "./components/DocumentHead";
 
 export default function SoftwarePage() {
   return (
     <main className="min-h-screen">
+      <DocumentHead
+        title="Software Development"
+        description="Custom software solutions tailored to your business needs. From web applications to mobile apps, we deliver innovative software that drives growth."
+        keywords="software development, custom software, web applications, mobile apps, enterprise software"
+      />
       <Header button="Book Consultation" />
       {/* Software Development Section */}
       <section className="container mx-auto px-8 sm:px-12 lg:px-24 py-24">

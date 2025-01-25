@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Header } from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useNavigate } from "react-router-dom";
+import DocumentHead from "./components/DocumentHead";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -16,6 +17,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
+      <DocumentHead
+        title="Home"
+        description="Transform your business with innovative IT solutions. Partner with Techbor for digital transformation and scalable solutions that drive success."
+        keywords="IT solutions, digital transformation, software development, business solutions, IT training"
+      />
       <Header button="Book Consultation" onButtonClick={scrollToConsultation} />
 
       {/* Hero Section */}
