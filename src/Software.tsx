@@ -75,7 +75,7 @@ export default function SoftwarePage() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  src="/cool.svg"
+                  src="/cool.png"
                   alt="Custom Software"
                   className="object-contain w-full h-[400px] max-w-[500px]"
                 />
@@ -90,7 +90,7 @@ export default function SoftwarePage() {
             <div className="grid md:grid-cols-2 gap-12 items-center py-12">
               <div className="flex items-center justify-center">
                 <img
-                  src="/mobile.svg"
+                  src="/mobile.png"
                   alt="Mobile Development"
                   className="object-contain w-full h-[400px] max-w-[500px]"
                 />
@@ -129,7 +129,7 @@ export default function SoftwarePage() {
               </div>
               <div className="flex items-center justify-center">
                 <img
-                  src="/web.svg"
+                  src="/web.png"
                   alt="Web Development"
                   className="object-contain w-full h-[400px] max-w-[500px]"
                 />
@@ -205,7 +205,7 @@ export default function SoftwarePage() {
             and a customer-focused approach to every project.
           </p>
           <img
-            src="/brainstorm.svg"
+            src="/brainstorm.png"
             alt="Mobile App Development"
             width={600}
             height={600}
